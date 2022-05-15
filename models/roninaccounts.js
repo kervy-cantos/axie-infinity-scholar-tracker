@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const passportlocalmongoose = require('passport-local-mongoose')
 const sequence = require('mongoose-sequence')(mongoose);
-
+const Now = Date.now();
 
 const roninSchema = new Schema({
     address:{
@@ -28,10 +28,13 @@ const roninSchema = new Schema({
     
     ronName:String,
     ronNextClaim:{
-        type: Date
+        type: Date,
+        default: Now
     },
     ronLastClaim:{
-        type: Date
+        type: Date,
+        default: Now
+
     },
     owner:[{
         type: Schema.Types.ObjectId,
