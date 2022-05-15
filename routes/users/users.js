@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Accounts = require('../models/account');
+const Accounts = require('../../models/account');
 const passport = require('passport')
 const catchasync = require('../../utils/catchasync');
 const {isLoggedIn} = require('../../authmiddleware');
