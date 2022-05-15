@@ -21,7 +21,6 @@ try{
    const regUser = await Accounts.register(user, password);
    console.log(regUser);
    req.flash('success', "Thank you for registering " + name ,", you may now log in.");
-   req.session.destroy();
    res.redirect('login');
 }
 catch (e) {
@@ -35,7 +34,7 @@ router.get('/login', (req,res)=>{
     
 })
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
-    req.flash('success', 'welcome back!');
+    req.flash('success', 'welcome back '+req.user.name+'!');
     const redirectUrl = req.session.returnTo || '/profile';
     delete req.session.returnTo;
     res.redirect(redirectUrl);

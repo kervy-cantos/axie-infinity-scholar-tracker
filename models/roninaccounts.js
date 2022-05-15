@@ -36,6 +36,10 @@ const roninSchema = new Schema({
         default: Now
 
     },
+    rank:{
+        type:Number,
+        default:0
+    },
     owner:[{
         type: Schema.Types.ObjectId,
         ref:'Users'

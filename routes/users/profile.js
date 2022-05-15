@@ -24,13 +24,14 @@ router.get('/profile', isLoggedIn ,catchasync(async (req, res)=>{
     })
     .then(async(data) =>{
         if(data.success){
-        const {mmr, in_game_slp, total_slp, next_claim,last_claim } = data
+        const {mmr, in_game_slp, total_slp, next_claim,last_claim, rank } = data
         
       await  roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{ronMMR: mmr}})
-      await   roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{ronTotal: total_slp}})
+      await  roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{ronTotal: total_slp}})
       await  roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{ronIngame: in_game_slp}})
       await  roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{ronNextClaim: next_claim*1000}})
       await  roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{ronLastClaim: last_claim*1000}})
+      await  roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{rank: rank}})
         }
      })
 

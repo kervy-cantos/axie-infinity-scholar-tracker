@@ -37,7 +37,8 @@
     <tr class="align-bottom">
       <th class="text-center"> Name</th>
       <th class="text-center">Ingame SLP</th> 
-      <th class="text-center">SLP Total</th> 
+      <th class="text-center">SLP Total</th>
+      <th class="text-center">Rank/MMR</th> 
       <th class="text-center">Manager</th>    
       <th class="text-center">Scholar</th>   
       <th class="text-center">Claim Date</th>
@@ -55,6 +56,7 @@
         </td>
         <td class="text-center"><%=ron.ronIngame%></td>
         <td class="text-center"><%=ron.ronTotal%></td>
+        <td class="text-center"><%=ron.rank%> / <%=ron.ronMMR%></td>
         <td class="text-center"><%=ron.mshare%>% / <%=Math.round(ron.mshare*ron.ronIngame/100)%></td>
         <td class="text-center"><%=isko%>% / <%=Math.round(isko*ron.ronIngame/100)%></td>
         <td class="text-center"><%=ron.ronNextClaim.toDateString()%></td> 
