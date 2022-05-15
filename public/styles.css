@@ -1,0 +1,22 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("axie.jpg");
+    background-size: cover;
+    background-repeat: no repeat;
+    
+
+}
+
+.center {
+    margin-top: 150px;
+    margin-left: 300px;
+    width:60%;
+    padding: 10px;
+    color: #f9dcc4;
+    font-weight:bold;
+}
+#card {
+    border-radius: 2%;
+    opacity: 0.8;
+}

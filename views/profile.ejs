@@ -1,0 +1,76 @@
+<% -layout('/layouts/boilerplate') -%>
+<div class="d-flex-center">
+<form class="" method="POST">
+  <label for="ronName">Name</label>
+  <input type="text" name="ronName" id="ronName">
+  <input type="text" name="address" id="address" placeholder="Add Ronin Address">
+  <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+<div class="table-responsive">
+  <table class="table align-middle table-light mb-auto  table-bordered table-hover">
+    <thead class="table-danger">
+    <tr class="align-bottom">
+      <th class="text-center"> Name</th>
+      <th class="text-center">Ingame SLP</th> 
+      <th class="text-center">SLP Total</th> 
+      <th class="text-center">Manager</th>    
+      <th class="text-center">Scholar</th>   
+      <th class="text-center">Claim Date</th>
+      <th class="text-center">Last Claim</th>
+      <th class="text-center" colspan="2">Edit/Delete</tr>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (let ron of prof) {%>
+     <% let isko = 100-ron.mshare%>
+    <tr class="align-center">
+        <td class="text-center"><%=ron.ronName%><br>
+          <a class="btn btn-secondary" href="https://marketplace.axieinfinity.com/profile/<%=ron.address%>">View in Marketplace</a>
+          
+        </td>
+        <td class="text-center"><%=ron.ronIngame%></td>
+        <td class="text-center"><%=ron.ronTotal%></td>
+        <td class="text-center"><%=ron.mshare%>% / <%=Math.round(ron.mshare*ron.ronIngame/100)%></td>
+        <td class="text-center"><%=isko%>% / <%=Math.round(isko*ron.ronIngame/100)%></td>
+        <td class="text-center"><%=ron.ronNextClaim.toDateString()%></td> 
+        <td class="text-center"><%=ron.ronLastClaim.toDateString()%></td>
+        <td class="text-center">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mymodal<%=ron.id%>">
+           Edit
+          </button>
+          
+          </td>  
+      <td class="text-center"><form action="profile/delete/<%=ron._id%>" method="POST">
+        <button type="submit" class="btn btn-danger">Delete</button></form></td>
+        <div class="modal fade" id="mymodal<%=ron.id%>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Scholar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form action="/profile/edit/<%=ron.id%>" method="POST">
+                  <label for="ronName" >Name</label><br>
+                  <input type="text" value="<%=ron.ronName%>" name="ronName"><br>
+                  <label for="address">Ronin Address</label><br>
+                  <input type="text" value="<%=ron.address%>" name="address"><br>
+                  <label for="mshare">Managershare</label><br>
+                  <input type="number" value="<%=ron.ronName%>" name="mshare"><br>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-secondary" type="Submit">Save Changes</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%} %>d
+      <script>
+      </script>
+    </tbody>
+  </table>
+  
+</div>
+</div>

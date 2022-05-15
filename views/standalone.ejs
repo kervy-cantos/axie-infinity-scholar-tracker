@@ -1,0 +1,37 @@
+<%- layout('layouts/boilerplate') -%>
+
+    <table class="table table-success">
+        <thead>
+            <tr>
+              <th scope="col">Ronin Address</th>
+              <th scope="col">Name</th>
+              <th scope="col">SLP ingame</th>
+              <th scope="col">SLP total</th>
+              <th scope="col">MMR</th>
+              <th scope="col">Lifetime SLP</th>
+            </tr>
+
+        </thead> 
+        <tbody>
+          <% if (data.length != 0) {%>
+            <tr>
+              <th scope="row"><%= ronin%></th>
+              <td><%=data.name %></td>
+              <td><%=data.in_game_slp %></td>
+              <td><%=data.total_slp %></td>
+              <td><%=data.mmr %></td>
+              <td><%=data.lifetime_slp%></td>
+            </tr>
+          <%}
+          else {%>
+            <th scope="row"><%= ronin%></th>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+
+          <%}%>
+        </tbody>
+
+      </table>

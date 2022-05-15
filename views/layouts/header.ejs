@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #98f5e1;" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">© Incognito</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="/" class="btn btn-outline-success">Home</a>
+          </li>
+          <% if(!currentUser) { %>
+          <li class="nav-item ms-2">
+            <a href="/login" class="btn btn-outline-success">Login</a>
+          </li>
+          <li class="nav-item ms-2">
+            <a href="/register" class="btn btn-outline-success">Register</a>
+          </li>
+       
+        </ul>
+
+            <form class="d-flex ">
+                <input class="form-control me-2" type="search" placeholder="Ronin Address" aria-label="Search" id="searchRonin">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              <%}
+             else {%>
+              <div class="d-flex flex-wrap-reverse">
+                <div class="flex-grow-1"></div>
+              <form class="ms-2">
+              <a href="/logout" class="btn btn-outline-success">Logout</a>
+             </form></div></div>
+          
+            
+            <%}%> 
+            <div class="d-flex flex-row-reverse">
+              <%const today = Date.now()
+                const today2 = new Date(today)%>
+              <%=today2.toDateString()%>
+              </div>
+      </div>
+    </div>
+  </nav>
