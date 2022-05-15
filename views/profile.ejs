@@ -1,11 +1,36 @@
 <% -layout('/layouts/boilerplate') -%>
-<div class="d-flex-center">
-<form class="" method="POST">
-  <label for="ronName">Name</label>
-  <input type="text" name="ronName" id="ronName">
-  <input type="text" name="address" id="address" placeholder="Add Ronin Address">
-  <button type="submit" class="btn btn-secondary">Submit</button>
-</form>
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Add Scholar
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form class="" action="/profile" method="POST">
+            <label for="ronName">Name</label>
+            <input type="text" class="form-control form-control-sm" name="ronName" id="ronName">
+            <label for="address">Ronin Address</label>
+            <input type="text" class="form-control form-control-sm" name="address" id="address" placeholder="Add Ronin Address">
+            <label for="mshare">Manager Share (%)</label>
+            <input type="number" class="form-control form-control-sm" name="mshare" id="mshare" value="100" min="0" max="100">
+          
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
+     
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</div>
 <div class="table-responsive">
   <table class="table align-middle table-light mb-auto  table-bordered table-hover">
     <thead class="table-danger">
@@ -51,12 +76,12 @@
               </div>
               <div class="modal-body">
                 <form action="/profile/edit/<%=ron.id%>" method="POST">
-                  <label for="ronName" >Name</label><br>
-                  <input type="text" value="<%=ron.ronName%>" name="ronName"><br>
-                  <label for="address">Ronin Address</label><br>
-                  <input type="text" value="<%=ron.address%>" name="address"><br>
-                  <label for="mshare">Managershare</label><br>
-                  <input type="number" value="<%=ron.ronName%>" name="mshare"><br>
+                  <label for="ronName" >Name</label>
+                  <input type="text" value="<%=ron.ronName%>" name="ronName" class="form-control form-control-sm">
+                  <label for="address">Ronin Address</label>
+                  <input type="text" value="<%=ron.address%>" name="address" class="form-control form-control-sm">
+                  <label for="mshare">Managershare</label>
+                  <input type="number" value="<%=ron.mshare%>" name="mshare" class="form-control form-control-sm" min="1" max="100">
               </div>
               <div class="modal-footer">
                 <button class="btn btn-secondary" type="Submit">Save Changes</button>
