@@ -7,7 +7,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item ms-2">
             <a href="/" class="btn btn-outline-success">Home</a>
           </li>
           <% if(!currentUser) { %>
@@ -17,28 +17,23 @@
           <li class="nav-item ms-2">
             <a href="/register" class="btn btn-outline-success">Register</a>
           </li>
-       
-        </ul>
+      
 
-            <form class="d-flex ">
-                <input class="form-control me-2" type="search" placeholder="Ronin Address" aria-label="Search" id="searchRonin">
+            <form class="d-flex flex-row-reverse ms-2" action="/standalone" method="POST">
+                <input class="form-control ms-2" type="search" placeholder="Ronin Address" aria-label="Search" id="searchRonin" name="searchRonin">
                 <button class="btn btn-outline-success" type="submit">Search</button>
               </form>
               <%}
              else {%>
-              <div class="d-flex flex-wrap-reverse">
-                <div class="flex-grow-1"></div>
+              <li class="nav-item">
               <form class="ms-2">
               <a href="/logout" class="btn btn-outline-success">Logout</a>
-             </form></div></div>
-          
+             </form>
+            </li>
             
             <%}%> 
-            <div class="d-flex flex-row-reverse">
-              <%const today = Date.now()
-                const today2 = new Date(today)%>
-              <%=today2.toDateString()%>
-              </div>
+         
+          </ul>
       </div>
     </div>
   </nav>
