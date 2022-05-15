@@ -126,8 +126,8 @@ app.use((err, req, res, next) => {
     if (!err.message) err.message = 'Oh No, Something Went Wrong!'
     res.status(statusCode).render('error', { err })
 })
-
-app.listen(process.env.port, ()=>{
+const port = process.env.PORT || 3000
+app.listen(process.env.PORT, ()=>{
     console.log("Server Online");
 })
 
