@@ -1,5 +1,4 @@
 const express = require('express');
-const res = require('express/lib/response');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
@@ -9,7 +8,7 @@ const roninAccounts = require('./models/roninaccounts')
 const ejsMate = require('ejs-mate');
 const fetch = require('node-fetch');
 const catchasync = require('./utils/catchasync')
-const bcrypt = require('bcrypt');
+
 const session = require('express-session');
 const passport = require('passport');
 const localStrategy = require('passport-local')
@@ -20,7 +19,6 @@ const flash = require('connect-flash');
 const {isLoggedIn} = require('./authmiddleware')
 const MongoStore = require('connect-mongo')
 const method = require('method-override')
-const cron = require('node-cron');
 require('dotenv').config();
 
 const dburl = process.env.database;
