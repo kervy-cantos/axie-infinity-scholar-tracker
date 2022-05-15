@@ -1,6 +1,6 @@
 <% -layout('/layouts/boilerplate') -%>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add Scholar
 </button>
 
@@ -43,16 +43,15 @@
       <th class="text-center">Scholar</th>   
       <th class="text-center">Claim Date</th>
       <th class="text-center">Last Claim</th>
-      <th class="text-center" colspan="2">Edit/Delete</tr>
+      <th class="text-center" colspan="2">Edit/Delete</th>
     </tr>
   </thead>
   <tbody>
     <% for (let ron of prof) {%>
-     <% let isko = 100-ron.mshare%>
+     <%let isko = 100-ron.mshare%>
     <tr class="align-center">
         <td class="text-center"><%=ron.ronName%><br>
           <a class="btn btn-secondary" href="https://marketplace.axieinfinity.com/profile/<%=ron.address%>">View in Marketplace</a>
-          
         </td>
         <td class="text-center"><%=ron.ronIngame%></td>
         <td class="text-center"><%=ron.ronTotal%></td>
@@ -93,7 +92,7 @@
             </div>
           </div>
         </div>
-      <%} %>d
+      <%} %>
       <script>
       </script>
     </tbody>
