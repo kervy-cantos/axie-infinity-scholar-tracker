@@ -24,7 +24,7 @@ try{
    res.redirect('login');
 }
 catch (e) {
-    req.flash("error", e.message);
+    alert(e.message);
     res.redirect('register');
 }
 }))
@@ -50,4 +50,12 @@ router.get('/logout', (req,res)=>{
 router.get('/forgotpassword', (req,res)=>{
     res.render('forgotpassword')
 })
+
+router.post('/forgotpassword', catchasync(async(req,res)=>{
+    const { username } = req.body;
+    const use = await Accounts.findByUsername(username)
+
+    console.log('use')
+}))
+
 module.exports = router;

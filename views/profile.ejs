@@ -37,6 +37,7 @@
     <tr class="align-bottom">
       <th class="text-center"> Name</th>
       <th class="text-center">Ingame SLP</th> 
+      <th class="text-center">SLP Today</th>
       <th class="text-center">SLP Total</th>
       <th class="text-center">Rank/MMR</th> 
       <th class="text-center">Manager</th>    
@@ -54,6 +55,7 @@
           <a class="btn btn-secondary" href="https://marketplace.axieinfinity.com/profile/<%=ron.address%>">View in Marketplace</a>
         </td>
         <td class="text-center"><%=ron.ronIngame%></td>
+        <td class="text-center"><%=ron.slpToday%></td>
         <td class="text-center"><%=ron.ronTotal%></td>
         <td class="text-center"><%=ron.rank%> / <%=ron.ronMMR%></td>
         <td class="text-center"><%=ron.mshare%>% / <%=Math.round(ron.mshare*ron.ronIngame/100)%></td>

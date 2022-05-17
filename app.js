@@ -14,12 +14,14 @@ const passport = require('passport');
 const localStrategy = require('passport-local')
 const userRoute = require('./routes/users/users')
 const profileRoute = require('./routes/users/profile')
-const scheduleRoute = require('./routes/users/schedule')
+
 const flash = require('connect-flash');
 const {isLoggedIn} = require('./authmiddleware')
 const MongoStore = require('connect-mongo')
 const method = require('method-override')
 require('dotenv').config();
+const cron = require('node-schedule');
+const roninaccounts = require('./models/roninaccounts');
 
 const dburl = process.env.database;
 app.use(express.urlencoded({extended:true}));
@@ -78,9 +80,48 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error');
     next();
 })
+    const rule = new cron.RecurrenceRule();
+        rule.hour = 23;
+        rule.minute = 55;
+        rule.tz = 'GMT';
+    const sched  =  cron.scheduleJob(rule,catchasync(async function(){ 
+        const rons = await roninAccounts.find();
+        for(let ron of rons){
+            fetch('https://game-api.axie.technology/api/v2/'+ ron.address)
+            .then((data) => {
+                return data.json();
+            })
+            .then(async(data) =>{
+                if(data.success){
+                const {mmr, in_game_slp, total_slp, next_claim,last_claim } = data
+                    const yesterday = roninAccounts.findOne({_id:ron.id})
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{ronMMR: mmr}})
+              await   roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{ronTotal: total_slp}})
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{ronIngame: in_game_slp}})
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{ronNextClaim: next_claim*1000}})
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{ronLastClaim: last_claim*1000}})
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{slpYesterday: in_game_slp}})
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$push:{daily: yesterday.slpToday}})
+              
+              console.log('updated successfully')
+                }
+             })
+        
+            .catch((error) => {
+                console.log(error);
+        
+            })
+           
+           
+        }
+        
+    }))
+    
+
+    
 app.use('/', userRoute);
 app.use('/', profileRoute)
-app.use('/', scheduleRoute)
+
 
 
 

@@ -40,6 +40,22 @@ const roninSchema = new Schema({
         type:Number,
         default:0
     },
+    slpAverage:{
+        type:Number,
+        default:0
+    },
+    slpToday:{
+        type:Number,
+        default:0
+    },
+    slpYesterday:{
+        type:Number,
+        default:0
+    },
+    daily:[{
+        type:Number,
+        default:0
+    }],
     owner:[{
         type: Schema.Types.ObjectId,
         ref:'Users'
