@@ -101,8 +101,9 @@ app.use((req, res, next) => {
               await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{ronNextClaim: next_claim*1000}})
               await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{ronLastClaim: last_claim*1000}})
               await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{slpYesterday: in_game_slp}})
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{recordYesterday: yesterday.slpToday}})
               await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$push:{daily: yesterday.slpToday}})
-              
+              await  roninAccounts.findByIdAndUpdate({_id: ron.id}, {$set:{slpToday: 0}})
               console.log('updated successfully')
                 }
              })

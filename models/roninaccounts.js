@@ -52,6 +52,10 @@ const roninSchema = new Schema({
         type:Number,
         default:0
     },
+    recordYesterday:{
+        type:Number,
+        default:0
+    },
     daily:[{
         type:Number,
         default:0

@@ -17,7 +17,10 @@
           <li class="nav-item ms-2 mb-1">
             <a href="/register" class="btn btn-outline-success">Register</a>
           </li>
-      
+          <form class="d-flex flex-row-reverse ms-2" action="/standalone" method="POST">
+            <input class="form-control ms-2" type="search" placeholder="Ronin Address" aria-label="Search" id="searchRonin" name="searchRonin" required>
+            <button class="btn btn-outline-success" type="submit">Track</button>
+          </form>
             
               <%}
              else {%>
@@ -31,10 +34,7 @@
          
           </ul>
           
-          <form class="d-flex flex-row-reverse ms-2" action="/standalone" method="POST">
-            <input class="form-control ms-2" type="search" placeholder="Ronin Address" aria-label="Search" id="searchRonin" name="searchRonin" required>
-            <button class="btn btn-outline-success" type="submit">Track</button>
-          </form>
+         
       </div>
     </div>
   </nav>

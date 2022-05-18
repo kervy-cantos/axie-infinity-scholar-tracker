@@ -1,6 +1,22 @@
 <% -layout('/layouts/boilerplate') -%>
+<div class="animate">
 
-<button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<div class="d-flex">
+<div class="card text-dark bg-white mb-3 me-3" style="max-width: 12rem;" id="slptotal">
+  <div class="card-body">
+    <h5 class="card-title">Total Slp Gained</h5>
+    <p class="card-text"><img src="slp.png" id="slpimg" /> <i style="font-size: 12px; margin-left: 10px;"> = 0 / ₱ 0.00</i></p>
+  </div>
+</div>
+
+<div class="card text-dark bg-white mb-3 me-3" style="max-width: 12rem; min-height: 10rem;" id="slptotal">
+  <div class="card-body">
+    <h5 class="card-title">Daily Slp Gained</h5>
+    <p class="card-text"><img src="slp.png" id="slpimg" /><i style="font-size: 12px; margin-left: 10px;"> = 0 / ₱ 0.00</i></p>
+  </div>
+</div>
+</div>
+<button type="button" id="but" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Add Scholar
 </button>
 
@@ -31,13 +47,14 @@
   </div>
 </div>
 </div>
-<div class="table-responsive">
+<div class="table-responsive" id="tableres">
   <table class="table align-middle table-light mb-auto  table-bordered table-hover">
     <thead class="table-danger">
     <tr class="align-bottom">
       <th class="text-center"> Name</th>
       <th class="text-center">Ingame SLP</th> 
       <th class="text-center">SLP Today</th>
+      <th class="text-center">SLP Yesterday</th>
       <th class="text-center">SLP Total</th>
       <th class="text-center">Rank/MMR</th> 
       <th class="text-center">Manager</th>    
@@ -56,6 +73,8 @@
         </td>
         <td class="text-center"><%=ron.ronIngame%></td>
         <td class="text-center"><%=ron.slpToday%></td>
+        <td class="text-center"><%=ron.recordYesterday%></td>
+
         <td class="text-center"><%=ron.ronTotal%></td>
         <td class="text-center"><%=ron.rank%> / <%=ron.ronMMR%></td>
         <td class="text-center"><%=ron.mshare%>% / <%=Math.round(ron.mshare*ron.ronIngame/100)%></td>
@@ -100,5 +119,6 @@
     </tbody>
   </table>
   
+</div>
 </div>
 </div>

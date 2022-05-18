@@ -4,10 +4,7 @@ body {
     url("axie.jpg");
     background-size: cover;
     background-repeat: no repeat;
-    
-
 }
-
 .center {
     margin-top: 150px;
     margin-left: 300px;
@@ -17,6 +14,65 @@ body {
     font-weight:bold;
 }
 #card {
-    border-radius: 2%;
+    border-radius: 5px;
+    overflow: hidden;
     opacity: 0.8;
+    
 }
+
+
+#tableres{
+  overflow: hidden;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+   
+    animation: slideUp .8s
+   
+
+}
+#slptotal :hover{
+background-color: antiquewhite;
+
+}
+#slptotal, #but{
+    background-color: rgb(64, 69, 170);
+    box-shadow: 6px 5px 5px  teal ;
+
+    animation: slideIn .5s
+}
+
+.hide{
+  overflow: hidden;
+}
+#slpimg{
+  height: 3rem;
+  margin-top: 2rem;
+  margin-right: 5px;
+}
+#slpnum{
+  font-size: 200px;
+  margin: 0;
+}
+
+
+
+
+
+
+@keyframes slideUp {
+    0% {
+      transform: translateY(500px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(500px) scale(.2);
+    }
+    100% {
+      transform: translateX(0px) scale(1);
+    }
+  }
