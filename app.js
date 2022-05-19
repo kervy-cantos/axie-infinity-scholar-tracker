@@ -83,7 +83,7 @@ app.use((req, res, next) => {
     const rule = new cron.RecurrenceRule();
         rule.hour = 23;
         rule.minute = 55;
-        rule.tz = 'GMT';
+        rule.tz = 'GMT+0';
     const sched  =  cron.scheduleJob(rule,catchasync(async function(){ 
         const rons = await roninAccounts.find();
         for(let ron of rons){
