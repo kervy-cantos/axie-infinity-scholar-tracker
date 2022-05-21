@@ -7,15 +7,22 @@
                 <img src="https://coinlive.me/wp-content/uploads/2022/01/Axie-Infinity-unveils-first-images-of-Project-K-and-terrain.jpeg" alt="" class="card-image-top"/>
                 <div class="card-body">
                     <h5 class="card-title">Registration</h1>
-                    <form action="" method="POST">
-                        <label for="username">Username</label>             
-                        <input type="text" id="username" name="newu[username]" class="form-control"> 
-                        <label for="password">Password</label>                   
-                        <input type="password" id="password" name="newu[password]"  class="form-control">                                            
+                    <form action="" method="POST" id = "regForm">
+                        <label for="username2">Username</label>             
+                        <input type="text" id="username2" name="newu[username]" class="form-control border-3" required>
+                        <div><small id="username2Warning"></small></div> 
+                        <label for="password1">Password</label>                   
+                        <input type="password" id="password1" name="newu[password]"  class="form-control border-3" required>
+                        <div><small id="password1Warning"></small></div>
+                        <label for="password2">Repeat Password</label>                   
+                        <input type="password" id="password2" name="password2" class="form-control border-3" required>
+                        <div><small id="password2Warning"></small></div>                                               
                         <label for="email">Email</label>                        
-                        <input type="text" id="email" name="newu[email]"  class="form-control">    
+                        <input type="text" id="email" name="newu[email]"  class="form-control border-3" required>   
+                        <div><small id="emailWarning"></small></div> 
                         <label for="name">Name</label> 
-                        <input type="text" id="name" name="newu[name]"  class="form-control"><br> 
+                        <input type="text" id="name" name="newu[name]"  class="form-control border-3" required><br> 
+                        <div><small id="warning2"></small></div> 
                         <div class="d-grid gap-2">
                             <button class="btn btn-danger" type="submit">Register</button>
                           </div>

@@ -24,7 +24,7 @@ try{
    res.redirect('login');
 }
 catch (e) {
-    alert(e.message);
+    req.flash("error", e.message);
     res.redirect('register');
 }
 }))
