@@ -22,7 +22,7 @@ nod-mailer - <i>npm i node-mailer</i>
 or download local https://zarkom.net/blogs/how-to-install-mongodb-for-development-in-windows-3328<br>
 4.Create a .env file on parent directory and provide the following:<br>
 database ='your database link and credentials' (local or cloud)<br>
-sessecret = 'provide your own secret'<br>
-<i>optional(some hosting sites will provide this and in this project default is 3000)</i><br>
+sessecret = 'provide your own secret'<br><br>
+<i>--optional(heroku for example, will provide this and in this project the default is 3000)--</i><br><br>
 PORT = 'your own port'<br>
-5.Run app.js
+5.(local)run terminal and enter: <i>node app.js</i>
