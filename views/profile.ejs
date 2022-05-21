@@ -4,15 +4,15 @@
 <div class="d-flex">
 <div class="card text-dark bg-white mb-3 me-3" style="max-width: 12rem;" id="slptotal">
   <div class="card-body">
-    <h5 class="card-title">Total Slp Gained</h5>
-    <p class="card-text"><img src="slp.png" id="slpimg" /> <i style="font-size: 12px; margin-left: 10px;"> = 0 / ₱ 0.00</i></p>
+    <h5 class="card-title text-white">Total Slp Gained</h5>
+    <p class="card-text"><img src="slp.png" id="slpimg" /> <i style="font-size: 12px; margin-left: 10px; color: #e0fbfc;"> = <%=total%>/ ₱ 0.00</i></p>
   </div>
 </div>
 
 <div class="card text-dark bg-white mb-3 me-3" style="max-width: 12rem; min-height: 10rem;" id="slptotal">
   <div class="card-body">
-    <h5 class="card-title">Daily Slp Gained</h5>
-    <p class="card-text"><img src="slp.png" id="slpimg" /><i style="font-size: 12px; margin-left: 10px;"> = 0 / ₱ 0.00</i></p>
+    <h5 class="card-title text-white">Average Daily</h5>
+    <p class="card-text"><img src="slp.png" id="slpimg" /><i style="font-size: 12px; margin-left: 10px; color: #e0fbfc;"> = 0 / ₱ 0.00</i></p>
   </div>
 </div>
 </div>
@@ -47,7 +47,8 @@
   </div>
 </div>
 </div>
-<div class="table-responsive" id="tableres">
+<div id="tableres">
+<div class="table-responsive" >
   <table class="table align-middle table-light mb-auto  table-bordered table-hover">
     <thead class="table-danger">
     <tr class="align-bottom">
@@ -69,7 +70,7 @@
      <%let isko = 100-ron.mshare%>
     <tr class="align-center">
         <td class="text-center"><%=ron.ronName%><br>
-          <a class="btn btn-secondary" href="https://marketplace.axieinfinity.com/profile/<%=ron.address%>">View in Marketplace</a>
+          <a class="btn btn-secondary" id="viewM" href="https://marketplace.axieinfinity.com/profile/<%=ron.address%>">Marketplace</a>
         </td>
         <td class="text-center"><%=ron.ronIngame%></td>
         <td class="text-center"><%=ron.slpToday%></td>
@@ -118,7 +119,8 @@
       </script>
     </tbody>
   </table>
-  
+</div>
+<div class="container mt-5 text-white"><i>*Note: Today and Yesterday's slp should work 48 hours after you added</i></div>
 </div>
 </div>
 </div>

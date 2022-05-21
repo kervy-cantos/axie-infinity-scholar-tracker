@@ -14,33 +14,38 @@ body {
     font-weight:bold;
 }
 #card {
-    
+    box-sizing: content-box;
+    margin-bottom: 20px;
     border-radius: 5px;
     overflow: hidden;
     opacity: 0.8;
     animation: slideUp .5s
+
     
 }
 
 
 #tableres{
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
   overflow: hidden;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-   
-    animation: slideUp .8s
+  animation: slideUp .5s
+  
    
 
 }
 #slptotal :hover{
-background-color: antiquewhite;
+background-color: #2b2c28;
 
 }
 #slptotal, #but{
-    background-color: rgb(64, 69, 170);
-    box-shadow: 6px 5px 5px  teal ;
+ 
+  background-color: #7f5a83;
+background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
 
-    animation: slideIn .5s
+  box-shadow: 6px 5px 5px  teal ;
+  
+ animation: slideIn .5s
 }
 
 .hide{
@@ -54,6 +59,15 @@ background-color: antiquewhite;
 #slpnum{
   font-size: 200px;
   margin: 0;
+}
+#viewM{
+  background-color: blueviolet;
+  font-size: 10px;
+justify-content: center;
+  box-sizing: content-box;
+  max-width: 5em;
+  max-height: 2em;
+  text-overflow: hidden;
 }
 
 

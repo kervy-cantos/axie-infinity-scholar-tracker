@@ -17,7 +17,9 @@ const fetch = require('node-fetch');
 router.get('/profile', isLoggedIn, catchasync(async (req, res) => {
     const prof1 = await Accounts.findOne({ _id: req.user.id }).populate('roninaccts')
     const prof = prof1.roninaccts
+    let total = 0;
     for (let ups of prof) {
+        
         fetch('https://game-api.axie.technology/api/v2/' + ups.address)
             .then((data) => {
                 return data.json();
@@ -33,18 +35,18 @@ router.get('/profile', isLoggedIn, catchasync(async (req, res) => {
                     await roninAccounts.findByIdAndUpdate({ _id: ups.id }, { $set: { ronLastClaim: last_claim * 1000 } })
                     await roninAccounts.findByIdAndUpdate({ _id: ups.id }, { $set: { rank: rank }})
                     await roninAccounts.findByIdAndUpdate({_id: ups.id}, {$set:{ slpToday : today}})
-                    
+                   
                 }
             })
-
+           
             .catch((error) => {
                 console.log(error);
 
             })
-
+          total = total + ups.ronTotal
     }
-    console.log(prof1.roninaccts)
-    res.render('profile', { prof })
+    
+    res.render('profile', { prof,total })
 
 }))
 

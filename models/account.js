@@ -13,6 +13,10 @@ const AccountSchema = new Schema({
         type: String,
         required: true
     },
+    totalSlp:{
+        type:Number,
+        default: 0
+    },
     roninaccts:[{
         type: Schema.Types.ObjectId,
         ref:'ronin'
