@@ -14,9 +14,11 @@ body {
     font-weight:bold;
 }
 #card {
+    
     border-radius: 5px;
     overflow: hidden;
     opacity: 0.8;
+    animation: slideUp .5s
     
 }
 
