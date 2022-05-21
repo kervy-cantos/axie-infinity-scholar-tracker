@@ -19,7 +19,7 @@ body {
     border-radius: 5px;
     overflow: hidden;
     opacity: 0.8;
-    animation: slideUp .5s
+    animation: slideUp .8s
 
     
 }
@@ -29,7 +29,7 @@ body {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   overflow: hidden;
-  animation: slideUp .5s
+  animation: slideUp 1s
   
    
 
@@ -45,7 +45,7 @@ background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
 
   box-shadow: 6px 5px 5px  teal ;
   
- animation: slideIn .5s
+ animation: slideIn 1s
 }
 
 .hide{
