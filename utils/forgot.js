@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const sendEmail = async(email, subject, text) =>{
+const sendEmail = async(email, subject, text, name) =>{
     try{
         const transporter= nodemailer.createTransport({
             host: process.env.HOST,
@@ -18,7 +18,7 @@ const sendEmail = async(email, subject, text) =>{
             from: process.env.USER,
             to:email,
             subject:subject,
-            text:text
+            text:"Hello "+ name +"! Please click on the link to reset your password",text
         })
         console.log('email sent');
     }
