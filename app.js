@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const ExpressError = require('./utils/expresserror')
 const Accounts = require('./models/account');
 const roninAccounts = require('./models/roninaccounts')
+const Token = require('./models/token')
 const ejsMate = require('ejs-mate');
 const fetch = require('node-fetch');
 const catchasync = require('./utils/catchasync')
